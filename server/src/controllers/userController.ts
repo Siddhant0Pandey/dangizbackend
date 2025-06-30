@@ -15,6 +15,7 @@ export const getProfile = async (req: Request, res: Response) => {
   } catch (err) {
     console.error("Get profile error:", err);
     res.status(500).json({ error: "Server error" });
+    next(err)
   }
 };
 
@@ -41,5 +42,10 @@ export const updateProfile = async (req: Request, res: Response) => {
   } catch (err) {
     console.error("Update profile error:", err);
     res.status(500).json({ error: "Server error" });
+    next(err)
   }
 };
+function next(err: unknown) {
+  throw new Error("Function not implemented.");
+}
+
